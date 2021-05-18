@@ -1,40 +1,11 @@
-import React, { Fragment, useContext } from 'react';
-import ReactDOM from 'react-dom';
-import { ICSetupProvider, icSetupContext } from './contexts/ICSetup';
-import { StylingProvider } from './contexts/Styling';
-
-const App = () => {
-  const { staticSetup, dynamicSetup, executeRAWFunction } = useContext(icSetupContext);
-  return (
-    <Fragment>
-      {!!staticSetup && !!dynamicSetup && (
-        <div>
-          
-          {/* Header */}
-          <div>
-            {staticSetup.content.layout.headerButtons.map((button, idx) => (
-              <button key={idx} onClick={() => {
-                executeRAWFunction(button.action);
-              }}>{ button.label }</button>
-            ))}
-          </div>
-
-          {/* Content */}
-          <div>
-            {dynamicSetup.content.title}
-          </div>
-
-        </div>
-      )}
-    </Fragment>
-  )
-}
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 
 ReactDOM.render(
-  <ICSetupProvider>
-    <StylingProvider>
-      <App />
-    </StylingProvider>
-  </ICSetupProvider>,
-  document.getElementById('root')
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
 );
