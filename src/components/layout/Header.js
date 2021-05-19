@@ -1,8 +1,8 @@
 import { useIc } from "../../context/IcContext.jsx";
 import React from "react";
-import Toggle from '../Toggle'
+import Toggle from "../Toggle";
 
-function Header({theme, toggleTheme}) {
+function Header({ theme, toggleTheme }) {
   const { staticSetup } = useIc();
 
   return (
@@ -16,7 +16,7 @@ function Header({theme, toggleTheme}) {
                   src={staticSetup.content.logo}
                   style={{
                     height: staticSetup.styling.logoHeight || "50px",
-                    width: staticSetup.styling.logoWidth || "auto"
+                    width: staticSetup.styling.logoWidth || "auto",
                   }}
                   alt="logo"
                 />
@@ -71,7 +71,7 @@ function Header({theme, toggleTheme}) {
                   ))}
               </ul>
             </div>
-            <Toggle theme={theme} toggleTheme={toggleTheme} />
+            {/* <Toggle theme={theme} toggleTheme={toggleTheme} /> */}
             <div className="responsive-mobile-menu">
               <button
                 className="navbar-toggler ml-4"
