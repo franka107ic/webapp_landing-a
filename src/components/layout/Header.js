@@ -1,59 +1,87 @@
 import { useIc } from "../../context/IcContext.jsx";
 import React from "react";
 import Toggle from "../Toggle";
+import styled from "styled-components";
 
 function Header({ theme, toggleTheme }) {
   const { staticSetup } = useIc();
+
+  const A = styled.a`
+    &:hover {
+      color: ${staticSetup.styling.colorPalette.primaryColors[0]} !important;
+    }
+  `;
+
+  const AChild = styled.a`
+    &:hover {
+      background-color: ${staticSetup.styling.colorPalette
+        .primaryColors[0]} !important;
+    }
+  `;
 
   return (
     <header className="App-header">
       <nav className="navbar navbar-area navbar-expand-lg">
         <div className="container nav-container">
-          {!!staticSetup.content.logo && (
-            <div className="logo-wrapper navbar-brand">
-              <a href="/" className="logo ">
-                <img
-                  src={staticSetup.content.logo}
-                  style={{
-                    height: staticSetup.styling.logoHeight || "50px",
-                    width: staticSetup.styling.logoWidth || "auto",
-                  }}
-                  alt="logo"
-                />
-              </a>
+          {!!staticSetup.content.layout.headerLogo && (
+            <div
+              onClick={() =>
+                window.ic.executeFunction(
+                  staticSetup.content.layout.headerLogo.action
+                )
+              }
+              className="logo-wrapper navbar-brand"
+              style={{ cursor: "pointer" }}
+            >
+              <img
+                src={staticSetup.content.layout.headerLogo.src}
+                style={{
+                  height:
+                    staticSetup.content.layout.headerLogo.heightScale + "rem" ||
+                    "auto",
+                  width:
+                    staticSetup.content.layout.headerLogo.widthScale + "rem" ||
+                    "auto",
+                }}
+                alt="logo"
+              />
             </div>
           )}
           <div className="collapse navbar-collapse" id="cgency">
             <ul className="navbar-nav" id="primary-menu">
-              {!!staticSetup.content.headerButtons &&
-                staticSetup.content.headerButtons.map((option, iOpt) => (
-                  <li
+              {!!staticSetup.content.layout.headerButtons &&
+                staticSetup.content.layout.headerButtons.map((option, iOpt) => (
+                  <nav
                     key={iOpt}
                     className={`nav-item ${!!option.childs && "dropdown"}`}
                   >
-                    <a
+                    <A
                       className={`nav-link ${
                         !!option.childs && "pl-0 dropdown-toggle"
                       }`}
                       data-toggle="dropdown"
-                      href="/"
+                      href="#"
+                      onClick={() => window.ic.executeFunction(option.action)}
                     >
                       {option.label}
-                    </a>
+                    </A>
                     {!!option.childs && (
                       <div className="dropdown-menu">
                         {option.childs.map((child, iChild) => (
-                          <a
-                            href="blog.html"
+                          <AChild
+                            href="#"
                             key={iChild}
+                            onClick={() =>
+                              window.ic.executeFunction(child.action)
+                            }
                             className="dropdown-item"
                           >
                             {child.label}
-                          </a>
+                          </AChild>
                         ))}
                       </div>
                     )}
-                  </li>
+                  </nav>
                 ))}
             </ul>
           </div>
@@ -61,14 +89,21 @@ function Header({ theme, toggleTheme }) {
           <div className="d-flex justify-content-center">
             <div className="nav-right-content">
               <ul>
-                {!!staticSetup.content.headerIcons &&
-                  staticSetup.content.headerIcons.map((element, indexE) => (
-                    <li key={indexE} className="align-middle">
-                      <a href="/">
-                        <i className={`${element.icon}`}></i>
-                      </a>
-                    </li>
-                  ))}
+                {!!staticSetup.content.layout.headerIcons &&
+                  staticSetup.content.layout.headerIcons.map(
+                    (element, indexE) => (
+                      <li key={indexE} className="align-middle">
+                        <A
+                          href="#"
+                          onClick={() =>
+                            window.ic.executeFunction(element.action)
+                          }
+                        >
+                          <i className={`${element.icon}`}></i>
+                        </A>
+                      </li>
+                    )
+                  )}
               </ul>
             </div>
             {/* <Toggle theme={theme} toggleTheme={toggleTheme} /> */}
