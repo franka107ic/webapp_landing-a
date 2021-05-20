@@ -3,22 +3,19 @@ import React from "react";
 import Toggle from "../Toggle";
 import styled from "styled-components";
 
+const A = styled.a`
+  &:hover {
+    color: ${(props) => props.color} !important;
+  }
+`;
+
+const AChild = styled.a`
+  &:hover {
+    background-color: ${(props) => props.backgroundColor} !important;
+  }
+`;
 function Header({ theme, toggleTheme }) {
   const { staticSetup } = useIc();
-
-  const A = styled.a`
-    &:hover {
-      color: ${staticSetup.styling.colorPalette.primaryColors[0]} !important;
-    }
-  `;
-
-  const AChild = styled.a`
-    &:hover {
-      background-color: ${staticSetup.styling.colorPalette
-        .primaryColors[0]} !important;
-    }
-  `;
-
   return (
     <header className="App-header">
       <nav className="navbar navbar-area navbar-expand-lg">
@@ -59,6 +56,7 @@ function Header({ theme, toggleTheme }) {
                       className={`nav-link ${
                         !!option.childs && "pl-0 dropdown-toggle"
                       }`}
+                      color={staticSetup.styling.colorPalette.primaryColors[0]}
                       data-toggle="dropdown"
                       href="#"
                       onClick={() => window.ic.executeFunction(option.action)}
@@ -70,6 +68,9 @@ function Header({ theme, toggleTheme }) {
                         {option.childs.map((child, iChild) => (
                           <AChild
                             href="#"
+                            backgroundColor={
+                              staticSetup.styling.colorPalette.primaryColors[0]
+                            }
                             key={iChild}
                             onClick={() =>
                               window.ic.executeFunction(child.action)
