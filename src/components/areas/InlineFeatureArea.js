@@ -10,9 +10,9 @@ function InlineFeatureArea(props) {
               <ul>
                 {props.params.cards &&
                   props.params.cards.map((card, i) => (
-                    <li key={i}>
-                      <div className="single-inline-feature-item">
-                        <div className="icon">
+                    <li key={i} className="d-flex justify-content-center">
+                      <div className="single-inline-feature-item d-flex flex-column justify-content-around">
+                        <div className="">
                           <img
                             className="flaticon-chat"
                             src={card.img}
@@ -20,8 +20,13 @@ function InlineFeatureArea(props) {
                           />
                         </div>
                         <div className="content">
-                          <a href="/">
-                            <h4 className="title">{card.title}</h4>
+                          <a
+                            href="#"
+                            onClick={() =>
+                              window.ic.executeFunction(card.title.action)
+                            }
+                          >
+                            <h4 className="title">{card.title.text}</h4>
                           </a>
                           <p>{card.text}</p>
                         </div>

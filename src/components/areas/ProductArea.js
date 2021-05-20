@@ -1,6 +1,48 @@
 import React from "react";
+import Slider from "react-slick";
 
 function ProductArea(props) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow:
+      props.params.productsToShow < props.params.products.length
+        ? props.params.productsToShow
+        : props.params.products.length,
+    slidesToScroll:
+      props.params.productsToShow < props.params.products.length
+        ? props.params.productsToShow
+        : props.params.products.length,
+    accesibility: true,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <section
       className="product-area padding-top-110 padding-bottom-90"
@@ -17,98 +59,47 @@ function ProductArea(props) {
         </div>
         <div className="row">
           <div className="col-lg-12">
-            <div className="product-carousel owl-carousel owl-theme owl-loaded">
-              <div className="owl-stage-outer">
-                <div
-                  className="owl-stage"
-                  style={{
-                    transform: "translate3d(-1600px, 0px, 0px)",
-                    transition: "all 0.25s ease 0s",
-                    width: "3520px"
-                  }}
-                >
-                  {props.params.products &&
-                    props.params.products.map((product, i) => (
-                      <div
-                        className="owl-item active"
-                        style={{
-                          width: "290px",
-                          marginRight: "30px"
-                        }}
-                        key={i}
-                      >
-                        <div className="single-product-item">
-                          <div className="thumb">
-                            <img src={product.img} alt="product" />
-                          </div>
-                          <div className="content">
-                            <h4 className="title">
-                              <a href="/">{product.name}</a>
-                            </h4>
-                            <div className="price-wrap">
-                              <span className="price mr-2">
-                                {product.reducePrice}
-                              </span>
-                              <del>{product.price}</del>
+            <div className="product-carousel">
+              <div className="">
+                <div>
+                  <Slider {...settings}>
+                    {props.params.products &&
+                      props.params.products.map((product, i) => (
+                        <div className="" key={i}>
+                          <div className="single-product-item">
+                            <div className="thumb">
+                              <img src={product.img} alt="product" />
                             </div>
-                            <a href="/" className="boxed-bt">
-                              {product.button}
-                            </a>
+                            <div className="content">
+                              <h4 className="title">
+                                <a href="/">{product.name}</a>
+                              </h4>
+                              <p className="h6">{product.description}</p>
+                              <div className="price-wrap">
+                                <span className="price mr-2">
+                                  {product.reducePrice}
+                                </span>
+                                <del>{product.price}</del>
+                              </div>
+                              <a
+                                href="#"
+                                onClick={() =>
+                                  window.ic.executeFunction(
+                                    product.button.action
+                                  )
+                                }
+                                className="boxed-bt"
+                              >
+                                {product.button.label}
+                              </a>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
-
-                  <div
-                    className="owl-item cloned"
-                    style={{
-                      width: "290px",
-                      marginRight: "30px"
-                    }}
-                  >
-                    <div className="single-product-item">
-                      <div className="thumb">
-                        <img src="assets/img/product/02.jpg" alt="product" />
-                      </div>
-                      <div className="content">
-                        <h4 className="title">
-                          <a href="/">V7t watch</a>
-                        </h4>
-                        <div className="price-wrap">
-                          <span className="price">$34</span> <del>$55</del>
-                        </div>
-                        <a href="/" className="boxed-bt">
-                          Buy Now
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="owl-item cloned"
-                    style={{
-                      width: "290px",
-                      marginRight: "30px"
-                    }}
-                  >
-                    <div className="single-product-item">
-                      <div className="thumb">
-                        <img src="assets/img/product/03.jpg" alt="product" />
-                      </div>
-                      <div className="content">
-                        <h4 className="title">
-                          <a href="/">t2f Watch</a>
-                        </h4>
-                        <div className="price-wrap">
-                          <span className="price">$34</span> <del>$55</del>
-                        </div>
-                        <a href="/" className="boxed-bt">
-                          Buy Now
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                      ))}
+                  </Slider>
                 </div>
               </div>
+              {/*
               <div className="owl-controls">
                 <div className="owl-nav">
                   <div className="owl-prev" style={{ display: "block" }}>
@@ -120,6 +111,7 @@ function ProductArea(props) {
                 </div>
                 <div className="owl-dots" />
               </div>
+                */}
             </div>
           </div>
         </div>

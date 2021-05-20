@@ -26,8 +26,21 @@ function HeaderArea(props) {
                 >
                   {props.params.title}
                 </h1>
+                <h3
+                  className="wow FadeInDown animated"
+                  style={{ visibility: "visible" }}
+                >
+                  {props.params.subtitle}
+                </h3>
                 <div className="btn-wrapper">
-                  <a href="/" className="boxed-btn btn-rounded reverse-color">
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.ic.executeFunction(props.params.button.action);
+                    }}
+                    className="boxed-btn btn-rounded reverse-color"
+                  >
                     <i className={`${props.params.button.icon}`} />{" "}
                     {props.params.button.label}
                   </a>
@@ -50,8 +63,8 @@ function HeaderArea(props) {
           </div>
           <img
             src={props.params.image.src}
-            width={props.params.image.width || "400px"}
-            height={props.params.image.height || "auto"}
+            width={props.params.image.width + "rem" || "auto"}
+            height={props.params.image.height + "rem" || "auto"}
             alt="header right"
           />
         </div>

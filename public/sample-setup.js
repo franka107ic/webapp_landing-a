@@ -1,13 +1,15 @@
 window.IC_SAMPLE_SETUP = {
   title: "Webapp title",
   favicon: "FAVICON_URL",
+  homepage: ".",
   styling: {
     look: {
       shadow: true,
       rounded: true,
     },
     colorPalette: {
-      primaryColors: ["#00967D"],
+      primaryColors: ["#00967D", "#10B981", "#34D399"],
+      secondaryColors: ["#10B981", "#00967D", "#10B981"],
       complementary: {
         white: "#FEFEFE",
         black: "#222222",
@@ -36,7 +38,7 @@ window.IC_SAMPLE_SETUP = {
       },
       headerButtons: [
         {
-          label: "Home",
+          label: "Inicio",
           action: {
             fnKey: "goToState",
             params: {
@@ -46,7 +48,7 @@ window.IC_SAMPLE_SETUP = {
           },
         },
         {
-          label: "Contact",
+          label: "Contacto",
           action: {
             fnKey: "goToState",
             params: {
@@ -56,7 +58,7 @@ window.IC_SAMPLE_SETUP = {
           },
         },
         {
-          label: "Services",
+          label: "Servicios",
           action: {
             fnKey: "goToState",
             params: {
@@ -95,25 +97,41 @@ window.IC_SAMPLE_SETUP = {
             },
           },
         },
+        {
+          icon: "fab fa-github",
+          action: {
+            fnKey: "redirect",
+            params: {
+              url: "https://github.com/TDevelopments",
+            },
+          },
+        },
       ],
     },
     areas: [
       {
         type: "header",
         params: {
-          title: "El mejor reloj para tu vida diaria",
+          title: "T-devs",
+          subtitle: "Tu lo imaginas, nosotros te ayudamos a crearlo.",
           button: {
-            icon: "fas fa-shopping-cart",
-            label: "Ir a comprar",
+            icon: "fab fa-servicestack",
+            label: "Servicios",
+            action: {
+              fnKey: "goToState",
+              params: {
+                stateName: "services",
+                stateParams: {},
+              },
+            },
           },
           wrap: {
             title: "50%",
-            subtitle: "de descuento",
+            subtitle: "De descuento",
           },
           image: {
-            src: "https://1000marcas.net/wp-content/uploads/2020/02/Docker-Logo.png",
-            width: "800px",
-            height: null,
+            src: "https://5ffb76a091e821000827671c.projects.ideascloud.io/file-uploads/60a5d81e70cd5b00083002a9",
+            width: "600",
           },
         },
       },
@@ -122,29 +140,36 @@ window.IC_SAMPLE_SETUP = {
         params: {
           cards: [
             {
-              img: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Notes_re_pxhw.svg",
-              title: "Lorem Ipsum",
-              text: "Fat decisively pursuit regular so calling. West he plan girl been my then up no.",
+              img: "https://5ffb76a091e821000827671c.projects.ideascloud.io/file-uploads/60a5fc5289aea90009d39717",
+              title: {
+                text: "Web apps",
+                action: {},
+              },
+              text: "Desarrollamos páginas web personalizadas segun los requerimientos de tu empresa y en un tiempo record.",
             },
             {
-              img: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/flagged_2uty.svg",
-              title: "Lorem Ipsum",
-              text: "Fat decisively pursuit regular so calling. West he plan girl been my then up no.",
+              img: "https://5ffb76a091e821000827671c.projects.ideascloud.io/file-uploads/60a5fc8f89aea90009d39718	",
+              title: {
+                text: "Mobile apps",
+                action: {},
+              },
+              text: "Somos especialistas en el desarrolo de aplicaciones mobiles multiplataforma (iOS y Android), esperando crear la app perfecta para ti.",
             },
             {
-              img: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Notes_re_pxhw.svg",
-              title: "Lorem Ipsum",
-              text: "Fat decisively pursuit regular so calling. West he plan girl been my then up no.",
+              img: "https://5ffb76a091e821000827671c.projects.ideascloud.io/file-uploads/60a5fd3d89aea90009d3971a	",
+              title: {
+                text: "Desktop apps",
+                action: {},
+              },
+              text: "¿Necesitas una aplicacion de escritorio nativa?, Nosotros te la implementamos!",
             },
             {
-              img: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Notes_re_pxhw.svg",
-              title: "Lorem Ipsum",
-              text: "Fat decisively pursuit regular so calling. West he plan girl been my then up no.",
-            },
-            {
-              img: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Landscape_mode_re_r964.svg",
-              title: "Lorem Ipsum",
-              text: "Fat decisively pursuit regular so calling. West he plan girl been my then up no.",
+              img: "https://5ffb76a091e821000827671c.projects.ideascloud.io/file-uploads/60a5fe7389aea90009d3971c	",
+              title: {
+                text: "Fix apps",
+                action: {},
+              },
+              text: "Ya tienes una aplicación web, movil o de escritorio pero funciona mal o no hay nadie que le de soporte, te ayudaremos!",
             },
           ],
         },
@@ -153,29 +178,28 @@ window.IC_SAMPLE_SETUP = {
         type: "rightlist",
         params: {
           image:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Orange_lambda.svg/980px-Orange_lambda.svg.png",
-          title:
-            "AWS Lambda is a serverless compute service that lets you run code",
+            "https://5ffb76a091e821000827671c.projects.ideascloud.io/file-uploads/60a69acf7a20a90009e81c9a	",
+          title: "T-devs, una empresa comprometida contido",
           features: [
             {
               icon: "flaticon-chat-1",
-              title: "Support 24/7",
-              text: "Intention age nay otherwise but breakfast. Around garden beyond to extent by.",
+              title: "Soporte 24/7",
+              text: "Hay cosas que no pueden detenerse y en T-devs lo sabemos bien. Por ello le ofrecemos un soporte siempre activo que se ajusta a sus necesidades",
             },
             {
               icon: "flaticon-heart",
-              title: "Monitorization",
-              text: "Intention age nay otherwise but breakfast. Around garden beyond to extent by.",
+              title: "Monitorizacion",
+              text: "Explorar, analizar y visualizar sus registros es parte de nuestro trabajo primordial enn T-devs. Esto con el objetivo de resolver problemas operativos con facilidad.",
             },
             {
               icon: "flaticon-route",
-              title: "In the World",
-              text: "Intention age nay otherwise but breakfast. Around garden beyond to extent by.",
+              title: "En todo el mundo",
+              text: "Te proveemos nuestros servicios estes dondes estes, contamos con varias sedes alrededor del mundo",
             },
             {
               icon: "flaticon-alarm-clock",
-              title: "Notifications",
-              text: "Intention age nay otherwise but breakfast. Around garden beyond to extent by.",
+              title: "Notificaciones",
+              text: "Te informamos constantemente de los cambios y las mejoras que encontremos en tu plataforma",
             },
           ],
         },
@@ -252,7 +276,16 @@ window.IC_SAMPLE_SETUP = {
         type: "introvideo",
         params: {
           href: "https://www.youtube.com/watch?v=1fFoImlTaHA",
-          title: "Abous us",
+          button: {
+            icon: "fas fa-play",
+            action: {
+              fnKey: "redirect",
+              params: {
+                url: "https://www.youtube.com",
+              },
+            },
+          },
+          title: "Nuestro trabajo",
           backgroundImage:
             "https://image.freepik.com/free-photo/desktop-source-code-wallpaper-by-computer-language-with-coding-programming_33771-595.jpg",
         },
@@ -260,71 +293,105 @@ window.IC_SAMPLE_SETUP = {
       {
         type: "product",
         params: {
-          title: "Our products",
-          text: "lorem impusn aid s nuatr surata turame",
+          title: "Nuestros productos",
+          text: "Proyectos del dia a dia adaptados al consumidor",
+          productsToShow: 4,
           products: [
             {
               img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
-              name: "Xiaomi Redmi Note 9",
-              price: 999,
-              reducePrice: 750,
-              button: "Comprar",
+              name: "T-devs ERP",
+              description: "Sistema especializado para grandes empresas",
+              price: "$999",
+              reducePrice: "$399",
+              button: {
+                label: "Adquirir",
+                action: {
+                  fnKey: "goToState",
+                  params: {
+                    stateName: "services",
+                  },
+                },
+              },
             },
             {
               img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
-              name: "Xiaomi Redmi Note 9",
-              price: 999,
-              reducePrice: 750,
-              button: "Comprar",
+              name: "T-devs ERP",
+              price: "$999",
+              description: "Sistema especializado para grandes empresas",
+              reducePrice: "$399",
+              button: {
+                label: "Adquirir",
+                action: {
+                  fnKey: "goToState",
+                  params: {
+                    stateName: "services",
+                  },
+                },
+              },
             },
             {
               img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
-              name: "Xiaomi Redmi Note 9",
-              price: 999,
-              reducePrice: 750,
-              button: "Comprar",
+              name: "T-devs ERP",
+              price: "$999",
+              reducePrice: "$399",
+              description: "Sistema especializado para grandes empresas",
+              button: {
+                label: "Adquirir",
+                action: {
+                  fnKey: "goToState",
+                  params: {
+                    stateName: "services",
+                  },
+                },
+              },
             },
             {
               img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
-              name: "Xiaomi Redmi Note 9",
-              price: 999,
-              reducePrice: 750,
-              button: "Comprar",
+              name: "T-devs ERP",
+              price: "$999",
+              description: "Sistema especializado para grandes empresas",
+              reducePrice: "$399",
+              button: {
+                label: "Adquirir",
+                action: {
+                  fnKey: "goToState",
+                  params: {
+                    stateName: "services",
+                  },
+                },
+              },
             },
             {
               img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
-              name: "Xiaomi Redmi Note 9",
-              price: 999,
-              reducePrice: 750,
-              button: "Comprar",
+              name: "T-devs ERP",
+              price: "$999",
+              description: "Sistema especializado para grandes empresas",
+              reducePrice: "$399",
+              button: {
+                label: "Adquirir",
+                action: {
+                  fnKey: "goToState",
+                  params: {
+                    stateName: "services",
+                  },
+                },
+              },
             },
             {
               img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
-              name: "Xiaomi Redmi Note 9",
-              price: 999,
-              reducePrice: 750,
-              button: "Comprar",
-            },
-            {
-              img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
-              name: "Xiaomi Redmi Note 9",
-              price: 999,
-              reducePrice: 750,
-              button: "Comprar",
-            },
-            {
-              img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
-              name: "Xiaomi Redmi Note 9",
-              price: 999,
-              reducePrice: 750,
-              button: "Comprar",
-            },
-            {
-              img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
-              name: "Xiaomi Redmi Note 9",
-              price: 999,
-              reducePrice: 750,
-              button: "Comprar",
+              name: "T-devs ERP",
+              price: "$999",
+              reducePrice: "$399",
+              description: "Sistema especializado para grandes empresas",
+              button: {
+                label: "Adquirir",
+                action: {
+                  fnKey: "goToState",
+                  params: {
+                    stateName: "services",
+                  },
+                },
+              },
             },
           ],
         },

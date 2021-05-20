@@ -24,7 +24,7 @@ function TestimonialArea(props) {
                   style={{
                     transform: "translate3d(-1920px, 0px, 0px)",
                     transition: "all 0.25s ease 0s",
-                    width: "3840px"
+                    width: "3840px",
                   }}
                 >
                   {props.params.cards &&
@@ -34,7 +34,7 @@ function TestimonialArea(props) {
                         className="owl-item cloned"
                         style={{
                           width: "450px",
-                          marginRight: "30px"
+                          marginRight: "30px",
                         }}
                       >
                         <div className="single-testimonial-item">

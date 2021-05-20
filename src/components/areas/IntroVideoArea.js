@@ -10,8 +10,14 @@ function IntroVideoArea(props) {
         <div className="row">
           <div className="col-lg-12 text-center">
             <div className="intro-video-wrap">
-              <a href={props.params.href} className="video-play-btn mfp-iframe">
-                <i className="fas fa-play" />
+              <a
+                href="#"
+                onClick={() =>
+                  window.ic.executeFunction(props.params.button.action)
+                }
+                className="video-play-btn mfp-iframe"
+              >
+                <i className={props.params.button.icon} />
               </a>
               <h2 className="title">{props.params.title}</h2>
             </div>

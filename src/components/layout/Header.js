@@ -14,6 +14,7 @@ const AChild = styled.a`
     background-color: ${(props) => props.backgroundColor} !important;
   }
 `;
+
 function Header({ theme, toggleTheme }) {
   const { staticSetup } = useIc();
   return (
@@ -52,25 +53,20 @@ function Header({ theme, toggleTheme }) {
                     key={iOpt}
                     className={`nav-item ${!!option.childs && "dropdown"}`}
                   >
-                    <A
+                    <a
+                      style={{ cursor: "pointer" }}
                       className={`nav-link ${
                         !!option.childs && "pl-0 dropdown-toggle"
                       }`}
-                      color={staticSetup.styling.colorPalette.primaryColors[0]}
-                      data-toggle="dropdown"
-                      href="#"
                       onClick={() => window.ic.executeFunction(option.action)}
                     >
                       {option.label}
-                    </A>
+                    </a>
                     {!!option.childs && (
                       <div className="dropdown-menu">
                         {option.childs.map((child, iChild) => (
-                          <AChild
-                            href="#"
-                            backgroundColor={
-                              staticSetup.styling.colorPalette.primaryColors[0]
-                            }
+                          <a
+                            style={{ cursor: "pointer" }}
                             key={iChild}
                             onClick={() =>
                               window.ic.executeFunction(child.action)
@@ -78,7 +74,7 @@ function Header({ theme, toggleTheme }) {
                             className="dropdown-item"
                           >
                             {child.label}
-                          </AChild>
+                          </a>
                         ))}
                       </div>
                     )}
@@ -87,21 +83,21 @@ function Header({ theme, toggleTheme }) {
             </ul>
           </div>
 
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center align-items-center">
             <div className="nav-right-content">
               <ul>
                 {!!staticSetup.content.layout.headerIcons &&
                   staticSetup.content.layout.headerIcons.map(
                     (element, indexE) => (
                       <li key={indexE} className="align-middle">
-                        <A
-                          href="#"
+                        <a
+                          style={{ cursor: "pointer" }}
                           onClick={() =>
                             window.ic.executeFunction(element.action)
                           }
                         >
                           <i className={`${element.icon}`}></i>
-                        </A>
+                        </a>
                       </li>
                     )
                   )}
