@@ -493,10 +493,20 @@ window.IC_SAMPLE_SETUP = {
                 ],
               },
             },
+          ],
+        },
+      },
+    },
+    {
+      key: "contact",
+      params: {
+        stores: [],
+        content: {
+          blocks: [
             {
               type: "contact",
               params: {
-                title: "Contac Us",
+                title: "Contact Us",
                 text: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor tempor incididunt ut labore et dolore",
                 info: [
                   {
@@ -564,13 +574,6 @@ window.IC_SAMPLE_SETUP = {
             },
           ],
         },
-      },
-    },
-    {
-      key: "contact",
-      params: {
-        stores: [],
-        content: {},
       },
     },
     {

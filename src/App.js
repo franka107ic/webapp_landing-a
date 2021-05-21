@@ -4,16 +4,11 @@ import Footer from "./components/layout/Footer";
 import Preloader from "./components/layout/Preloader";
 import Landing from "./pages/Landing";
 import { IcProvider, useIc } from "./context/IcContext";
-import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./utilities/theme/global";
-import { lightTheme, darkTheme } from "./utilities/theme/theme";
-import { useDarkMode } from "./utilities/theme/useDarkMode";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const App = () => {
-  const { staticSetup, loading } = useIc();
-  const [theme, toggleTheme, componentMounted] = useDarkMode();
+  const { staticSetup } = useIc();
 
   useEffect(() => {
     if (staticSetup) {
@@ -45,28 +40,16 @@ const App = () => {
     }
   }, [staticSetup]);
 
-  let themeMode = theme === "light" ? lightTheme : darkTheme;
-  if (!window.localStorage.getItem("theme")) {
-    //themeMode = staticSetup && staticSetup.styling.darkMode ? darkTheme : lightTheme
-    themeMode = staticSetup && lightTheme;
-  }
-
-  if (!componentMounted) {
-    return <Preloader loading={true} />;
-  }
-
   return (
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyles />
+    <>
       {!!staticSetup && (
         <div className="App">
-          <Preloader loading={loading} />
-          <Header theme={theme} toggleTheme={toggleTheme} />
+          <Header />
           <Landing />
           <Footer />
         </div>
       )}
-    </ThemeProvider>
+    </>
   );
 };
 

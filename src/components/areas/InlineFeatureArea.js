@@ -2,7 +2,10 @@ import React from "react";
 
 function InlineFeatureArea(props) {
   return (
-    <div className="inline-feature-area padding-top-120" id="about">
+    <div
+      className="inline-feature-area padding-top-60 padding-bottom-60"
+      id="about"
+    >
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

@@ -1,9 +1,7 @@
 import { useIc } from "../../context/IcContext.jsx";
 import React from "react";
-import Toggle from "../Toggle";
-import styled from "styled-components";
 
-function Header({ theme, toggleTheme }) {
+function Header() {
   const { staticSetup } = useIc();
   return (
     <header className="App-header">
