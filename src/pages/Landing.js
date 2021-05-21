@@ -16,7 +16,8 @@ function Landing() {
 
   return (
     <Fragment>
-      {!!dynamicSetup.content.blocks &&
+      {!!dynamicSetup &&
+        !!dynamicSetup.content.blocks &&
         dynamicSetup.content.blocks.map((block, indexArea) => {
           switch (block.type) {
             case "header":

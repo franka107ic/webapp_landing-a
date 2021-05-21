@@ -11,10 +11,10 @@ export function IcProvider(props) {
     window.ic.init({
       precompileSetup: () => {
         window.ic.registerFunction('uiShowLoader', () => {
-          document.getElementById('loader-elem').style.display = 'flex';
+          document.getElementById('loader').style.display = 'flex';
         })
         window.ic.registerFunction('uiHideLoader', () => {
-          document.getElementById('loader-elem').style.display = 'none';
+          document.getElementById('loader').style.display = 'none';
         })
       },
       setupStatics: (scope) => {
