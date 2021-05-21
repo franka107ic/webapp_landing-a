@@ -3,18 +3,6 @@ import React from "react";
 import Toggle from "../Toggle";
 import styled from "styled-components";
 
-const A = styled.a`
-  &:hover {
-    color: ${(props) => props.color} !important;
-  }
-`;
-
-const AChild = styled.a`
-  &:hover {
-    background-color: ${(props) => props.backgroundColor} !important;
-  }
-`;
-
 function Header({ theme, toggleTheme }) {
   const { staticSetup } = useIc();
   return (

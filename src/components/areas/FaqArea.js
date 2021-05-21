@@ -27,7 +27,6 @@ function FaqArea(props) {
                             data-target={`#collapse${i}`}
                             aria-expanded="false"
                             aria-controls={`collapse${i}`}
-                            href="/"
                           >
                             {question.title}
                           </a>
@@ -49,7 +48,7 @@ function FaqArea(props) {
           </div>
           <div className="col-lg-5">
             <div className="right-content-area">
-              <div className="img-wrapper">
+              <div className="img-wrapper text-center">
                 <img src={props.params.img} alt="faq" />
               </div>
             </div>

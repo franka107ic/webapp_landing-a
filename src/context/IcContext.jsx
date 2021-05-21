@@ -8,14 +8,15 @@ export function IcProvider(props) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    window.ic.registerFunction("uiShowLoader", () => {
-      setLoading(true);
-    });
-    window.ic.registerFunction("uiHideLoader", () => {
-      setLoading(false);
-    });
-
     window.ic.init({
+      precompileSetup: () => {
+        window.ic.registerFunction('uiShowLoader', () => {
+          document.getElementById('loader-elem').style.display = 'flex';
+        })
+        window.ic.registerFunction('uiHideLoader', () => {
+          document.getElementById('loader-elem').style.display = 'none';
+        })
+      },
       setupStatics: (scope) => {
         scope.onRender((params) => {
           setStaticSetup(params);

@@ -69,7 +69,14 @@ function ContactArea(props) {
                   <div className="col-lg-12">
                     {props.params.buttons &&
                       props.params.buttons.map((button, i) => (
-                        <button className="submit-btn" key={i} type="submit">
+                        <button
+                          className="submit-btn"
+                          onClick={(e) => {
+                            window.ic.executeFunction(button.action);
+                          }}
+                          key={i}
+                          type="submit"
+                        >
                           {button.label}
                         </button>
                       ))}

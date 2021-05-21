@@ -12,37 +12,39 @@ import ContactArea from "../components/areas/ContactArea";
 import { useIc } from "../context/IcContext.jsx";
 
 function Landing() {
-  const { staticSetup } = useIc();
+  const { staticSetup, dynamicSetup } = useIc();
 
   return (
     <Fragment>
-      {!!staticSetup.content.areas &&
-        staticSetup.content.areas.map((area, indexArea) => {
-          switch (area.type) {
+      {!!dynamicSetup.content.blocks &&
+        dynamicSetup.content.blocks.map((block, indexArea) => {
+          switch (block.type) {
             case "header":
-              return <HeaderArea key={indexArea} params={area.params} />;
+              return <HeaderArea key={indexArea} params={block.params} />;
             case "inline":
-              return <InlineFeatureArea key={indexArea} params={area.params} />;
+              return (
+                <InlineFeatureArea key={indexArea} params={block.params} />
+              );
             case "rightlist":
               return (
-                <RightListFeatureArea key={indexArea} params={area.params} />
+                <RightListFeatureArea key={indexArea} params={block.params} />
               );
             case "leftlist":
               return (
-                <LeftListFeatureArea key={indexArea} params={area.params} />
+                <LeftListFeatureArea key={indexArea} params={block.params} />
               );
             case "blockfeature":
-              return <BlockFeatureArea key={indexArea} params={area.params} />;
+              return <BlockFeatureArea key={indexArea} params={block.params} />;
             case "introvideo":
-              return <IntroVideoArea key={indexArea} params={area.params} />;
+              return <IntroVideoArea key={indexArea} params={block.params} />;
             case "product":
-              return <ProductArea key={indexArea} params={area.params} />;
+              return <ProductArea key={indexArea} params={block.params} />;
             case "testimonial":
-              return <TestimonialArea key={indexArea} params={area.params} />;
+              return <TestimonialArea key={indexArea} params={block.params} />;
             case "faq":
-              return <FaqArea key={indexArea} params={area.params} />;
+              return <FaqArea key={indexArea} params={block.params} />;
             case "contact":
-              return <ContactArea key={indexArea} params={area.params} />;
+              return <ContactArea key={indexArea} params={block.params} />;
             default:
               return (
                 <h1 key={indexArea} class="text-danger text-center">

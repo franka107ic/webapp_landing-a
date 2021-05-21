@@ -20,8 +20,14 @@ function ProductArea(props) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow:
+            props.params.productsToShow <= props.params.products.length
+              ? 3
+              : props.params.products.length,
+          slidesToScroll:
+            props.params.productsToShow <= props.params.products.length
+              ? 3
+              : props.params.products.length,
           infinite: true,
           dots: true,
         },
@@ -29,9 +35,18 @@ function ProductArea(props) {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow:
+            props.params.productsToShow <= props.params.products.length
+              ? 2
+              : props.params.products.length,
+          slidesToScroll:
+            props.params.productsToShow <= props.params.products.length
+              ? 2
+              : props.params.products.length,
+          initialSlide:
+            props.params.productsToShow <= props.params.products.length
+              ? 2
+              : props.params.products.length,
         },
       },
       {
@@ -72,7 +87,16 @@ function ProductArea(props) {
                             </div>
                             <div className="content">
                               <h4 className="title">
-                                <a href="/">{product.name}</a>
+                                <a
+                                  onClick={() => {
+                                    window.ic.executeFunction(
+                                      product.name.action
+                                    );
+                                  }}
+                                  style={{ cursor: "pointer" }}
+                                >
+                                  {product.name.text}
+                                </a>
                               </h4>
                               <p className="h6">{product.description}</p>
                               <div className="price-wrap">
@@ -82,12 +106,12 @@ function ProductArea(props) {
                                 <del>{product.price}</del>
                               </div>
                               <a
-                                href="#"
-                                onClick={() =>
+                                onClick={() => {
                                   window.ic.executeFunction(
                                     product.button.action
-                                  )
-                                }
+                                  );
+                                }}
+                                style={{ cursor: "pointer" }}
                                 className="boxed-bt"
                               >
                                 {product.button.label}

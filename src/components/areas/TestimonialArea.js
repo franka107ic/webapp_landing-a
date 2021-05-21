@@ -1,11 +1,88 @@
 import React from "react";
+import Slider from "react-slick";
 
 function TestimonialArea(props) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow:
+      props.params.cardsToShow < props.params.cards.length
+        ? props.params.cardsToShow
+        : props.params.cards.length,
+    slidesToScroll:
+      props.params.cardsToShow < props.params.cards.length
+        ? props.params.cardsToShow
+        : props.params.cards.length,
+    accesibility: true,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow:
+            props.params.cardsToShow <= props.params.cards.length
+              ? 2
+              : props.params.cards.length,
+          slidesToScroll:
+            props.params.cardsToShow <= props.params.cards.length
+              ? 2
+              : props.params.cards.length,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow:
+            props.params.cardsToShow <= props.params.cards.length
+              ? 1
+              : props.params.cards.length,
+          slidesToScroll:
+            props.params.cardsToShow <= props.params.cards.length
+              ? 1
+              : props.params.cards.length,
+          initialSlide:
+            props.params.cardsToShow <= props.params.cards.length
+              ? 1
+              : props.params.cards.length,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <section
-      className="testimonial-area testimonial-bg padding-top-110 padding-bottom-120"
+      className="list-feature-area padding-top-110 padding-bottom-115 list-feature-bg"
       id="testimonial"
     >
+      <div
+        style={{
+          position: "absolute",
+          bottom: "-20px",
+          width: "100%",
+          transform: "rotate(180deg)",
+        }}
+      >
+        <svg viewBox="0 0 1920 110">
+          <path
+            fill="#fff"
+            d="M 0 27 C 740.5 27 740.5 94 1481 94 L 1481 94 L 1481 0 L 0 0 Z"
+          ></path>{" "}
+          <path
+            fill="#fff"
+            d="M 1480 94 C 1700 94 1700 82 1920 82 L 1920 82 L 1920 0 L 1480 0 Z"
+          ></path>{" "}
+        </svg>
+      </div>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-6">
@@ -17,16 +94,9 @@ function TestimonialArea(props) {
         </div>
         <div className="row">
           <div className="col-lg-12">
-            <div className="testimonial-carousel owl-carousel owl-theme owl-loaded">
-              <div className="owl-stage-outer">
-                <div
-                  className="owl-stage"
-                  style={{
-                    transform: "translate3d(-1920px, 0px, 0px)",
-                    transition: "all 0.25s ease 0s",
-                    width: "3840px",
-                  }}
-                >
+            <div className="testimonial-carousel">
+              <div className="">
+                <Slider {...settings}>
                   {props.params.cards &&
                     props.params.cards.map((card, i) => (
                       <div
@@ -54,22 +124,30 @@ function TestimonialArea(props) {
                         </div>
                       </div>
                     ))}
-                </div>
-              </div>
-              <div className="owl-controls">
-                <div className="owl-nav">
-                  <div className="owl-prev" style={{ display: "block" }}>
-                    <i className="fas fa-angle-left" />
-                  </div>
-                  <div className="owl-next" style={{ display: "block" }}>
-                    <i className="fas fa-angle-right" />
-                  </div>
-                </div>
-                <div className="owl-dots" style={{ display: "none" }} />
+                </Slider>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "-20px",
+          width: "100%",
+          transform: "",
+        }}
+      >
+        <svg viewBox="0 0 1920 110">
+          <path
+            fill="#fff"
+            d="M 0 27 C 740.5 27 740.5 94 1481 94 L 1481 94 L 1481 0 L 0 0 Z"
+          ></path>{" "}
+          <path
+            fill="#fff"
+            d="M 1480 94 C 1700 94 1700 82 1920 82 L 1920 82 L 1920 0 L 1480 0 Z"
+          ></path>{" "}
+        </svg>
       </div>
     </section>
   );

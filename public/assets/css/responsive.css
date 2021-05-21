@@ -1,7 +1,7 @@
 @media only screen and (min-width: 1201px) and (max-width: 1366px) {
   .header-area .header-right-image {
     position: absolute;
-    right: -8%;
+    right: -45%;
     bottom: 0px;
   }
   .header-area.style-03 .watch-1 {
@@ -17,7 +17,7 @@
     line-height: 34px;
   }
   .header-area .header-right-image img {
-    width: 80%;
+    width: 55%;
   }
   .header-area.style-two .header-right-image {
     position: absolute;
@@ -57,7 +57,7 @@
   }
   .header-area .header-right-image {
     position: absolute;
-    right: -25%;
+    right: -55%;
     bottom: 0px;
   }
   .header-area .header-area-inner .title {
@@ -100,7 +100,7 @@
     width: 90%;
   }
   .header-area .header-right-image img {
-    width: 85%;
+    width: 55%;
   }
 }
 
