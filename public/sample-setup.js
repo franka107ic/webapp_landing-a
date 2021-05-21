@@ -1,7 +1,6 @@
 window.IC_SAMPLE_SETUP = {
   title: "Webapp title",
   favicon: "FAVICON_URL",
-  homepage: ".",
   styling: {
     look: {
       shadow: true,
