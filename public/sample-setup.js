@@ -38,50 +38,28 @@ window.IC_SAMPLE_SETUP = {
       headerButtons: [
         {
           label: "Inicio",
-          action: {
-            fnKey: "goToState",
-            params: {
-              stateName: "home",
-              stateParams: {},
-            },
-          },
+          href: "/#/home"
+
         },
         {
           label: "Contacto",
-          action: {
-            fnKey: "goToState",
-            params: {
-              stateName: "contact",
-              stateParams: {},
-            },
-          },
+          href: "/#/contact"
+
         },
         {
           label: "Servicios",
-          action: {
-            fnKey: "goToState",
-            params: {
-              stateName: "services",
-            },
-          },
+          href: "/#/services",
           childs: [
             {
+
               label: "Páginas web",
-              action: {
-                fnKey: "goToState",
-                params: {
-                  stateName: "webPages",
-                },
-              },
+              href: "/#/webPages"
+
             },
             {
               label: "Aplicaciones moviles",
-              action: {
-                fnKey: "goToState",
-                params: {
-                  stateName: "mobileApps",
-                },
-              },
+              href: "/#/mobileApps"
+
             },
           ],
         },
@@ -304,6 +282,44 @@ window.IC_SAMPLE_SETUP = {
                 text: "Proyectos del dia a dia adaptados al consumidor",
                 productsToShow: 4,
                 products: [
+                  {
+                    img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
+                    name: {
+                      text: "T-devs ERP",
+                      action: {},
+                    },
+                    description: "Sistema especializado para grandes empresas",
+                    price: "$999",
+                    reducePrice: "$399",
+                    button: {
+                      label: "Adquirir",
+                      action: {
+                        fnKey: "goToState",
+                        params: {
+                          stateName: "services",
+                        },
+                      },
+                    },
+                  },
+                  {
+                    img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
+                    name: {
+                      text: "T-devs ERP",
+                      action: {},
+                    },
+                    description: "Sistema especializado para grandes empresas",
+                    price: "$999",
+                    reducePrice: "$399",
+                    button: {
+                      label: "Adquirir",
+                      action: {
+                        fnKey: "goToState",
+                        params: {
+                          stateName: "services",
+                        },
+                      },
+                    },
+                  },
                   {
                     img: "https://estaticos-cdn.elperiodico.com/clip/c51b92fd-7a10-47b1-aad6-9adc4ce01804_alta-libre-aspect-ratio_default_0.jpg",
                     name: {

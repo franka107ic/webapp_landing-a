@@ -88,7 +88,7 @@ function TestimonialArea(props) {
           <div className="col-lg-6">
             <div className="section-title text-center white">
               <h2 className="title">{props.params.title}</h2>
-              <p>{props.params.text}</p>
+              <p style={{ color: "white" }}>{props.params.text}</p>
             </div>
           </div>
         </div>

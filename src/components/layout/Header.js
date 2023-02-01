@@ -41,10 +41,10 @@ function Header() {
                   >
                     <a
                       style={{ cursor: "pointer" }}
-                      className={`nav-link ${
-                        !!option.childs && "pl-0 dropdown-toggle"
-                      }`}
-                      onClick={() => window.ic.executeFunction(option.action)}
+                      className={`nav-link ${!!option.childs && "pl-0 dropdown-toggle"
+                        }`}
+                      href={option.href}
+                    // onClick={() => window.ic.executeFunction(option.action)}
                     >
                       {option.label}
                     </a>
@@ -54,9 +54,10 @@ function Header() {
                           <a
                             style={{ cursor: "pointer" }}
                             key={iChild}
-                            onClick={() =>
-                              window.ic.executeFunction(child.action)
-                            }
+                            href={child.href}
+                            // onClick={() =>
+                            //   window.ic.executeFunction(child.action)
+                            // }
                             className="dropdown-item"
                           >
                             {child.label}

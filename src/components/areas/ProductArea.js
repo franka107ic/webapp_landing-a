@@ -60,7 +60,7 @@ function ProductArea(props) {
   };
   return (
     <section
-      className="product-area padding-top-110 padding-bottom-90"
+      className=" padding-top-110 padding-bottom-90"
       id="product"
     >
       <div className="container">
@@ -74,12 +74,12 @@ function ProductArea(props) {
         </div>
         <div className="row">
           <div className="col-lg-12">
-            <div className="product-carousel">
+            <div className="">
               <div className="">
                 <div>
                   <Slider {...settings}>
-                    {props.params.products &&
-                      props.params.products.map((product, i) => (
+                    {
+                      props.params?.products?.map((product, i) => (
                         <div className="" key={i}>
                           <div className="single-product-item">
                             <div className="thumb">

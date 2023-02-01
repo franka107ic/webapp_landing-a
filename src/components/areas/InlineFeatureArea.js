@@ -14,13 +14,18 @@ function InlineFeatureArea(props) {
                 {props.params.cards &&
                   props.params.cards.map((card, i) => (
                     <li key={i} className="d-flex justify-content-center">
-                      <div className="single-inline-feature-item d-flex flex-column justify-content-around">
+                      <div className="single-inline-feature-item d-flex flex-column ">
                         <div className="">
-                          <img
-                            className="flaticon-chat"
-                            src={card.img}
-                            alt="icon"
-                          />
+                          {card.img && (
+                            <div style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                              <img
+                                className="flaticon-chat"
+                                src={card.img}
+                                alt="icon"
+                              />
+                            </div>
+
+                          )}
                         </div>
                         <div className="content">
                           <a
